@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <style>
+        .demo-example{margin: 10px;padding: 20px;border: 1px solid #f8f9fa; box-shadow:0 0 10px #d4d7dd;border-radius: 8px;}
+        .demo-example pre{border: 1px solid #f8f9fa;background-color:#f8f9fa;border-radius: 8px;margin: 15px 0 0;padding: 10px;}
+    </style>
+</head>
+<body>
+<div class="demo-example">
+    <div class="common-group">
+        <label class="common-label">姓名：</label>
+        <input type="text" class="common-input"/>
+    </div>
+    <div class="common-group">
+        <label class="common-label">身份证号：</label>
+        <input type="text" class="common-input"/>
+    </div>
+    <div class="common-group">
+        <label class="common-label">性别：</label>
+        <select class="common-select">
+            <option>男</option>
+            <option>女</option>
+        </select>
+    </div>
+    <div class="common-group">
+        <label class="common-label">备注：</label>
+        <textarea class="common-textarea" ></textarea>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../js/base.js"></script>
+<script>
+    importing('validator',function(){
+
+    });
+</script>
+</html>

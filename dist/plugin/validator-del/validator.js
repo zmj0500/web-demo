@@ -1,0 +1,1 @@
+$.fn.validatorBox = function(){};

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页</title>
+    <style>
+        .main-center{vertical-align: middle;height: 160px;text-align: center;margin-top: 200px;}
+        .system-log{display: inline-block;text-align: center;vertical-align: middle;}
+        .system-title{color: #494949;margin-top: 0;font-size: 30px;}
+        .system-login-line{display: inline-block;width: 1px;height: 100%;background: #d4d7dd;vertical-align: middle;margin: 0 35px;}
+        .login-box{display: inline-block;vertical-align: middle;}
+        .login-box input{border: 0;font-size: 16px;width: 230px;vertical-align: middle;color: #494949}
+        .login-box input:focus{outline: none;color: #494949;}
+        .input-box {
+            border: 1px solid #d4d7dd;
+            margin-bottom: 15px;
+            padding: 8px 5px;
+            border-radius: 5px;
+        }
+        .input-box img{vertical-align: bottom;}
+        .login-btn{    display: inline-block;
+            width: 100%;
+            background-color: #21c87a;
+            color: #fff;
+            height: 35px;
+            line-height: 35px;
+            border-radius: 5px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+        .login-btn:hover{
+            background-color: #1ca766;
+        }
+    </style>
+</head>
+<body>
+<div class="main-center">
+    <div class="system-log">
+        <img width="70px" src="img/login/logo.png"/>
+        <h2 class="system-title"> 值 班 系 统 </h2>
+    </div>
+    <div class="system-login-line"></div>
+    <div class="login-box">
+        <div class="input-box">
+            <img src="img/login/user.png"/>
+            <input id="account" type="text" placeholder="请输入用户名"/>
+        </div>
+        <div class="input-box">
+            <img src="img/login/pwd.png"/>
+            <input id="password" type="password" placeholder="请输入密码"/>
+        </div>
+        <span id="login-btn" class="login-btn">登 录</span>
+    </div>
+</div>
+<!--用户名：<input id="account" type="text" value="zhangsan"/>
+密码：<input id="password" type="password" value="123456"/>
+<a id="login-btn" href="javascript:;">登录</a>-->
+</body>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+    function login(){
+        var account = '';
+        var pwd = '';
+        $post('/login',{account:account,password:pwd},function(res){
+            sessionData.set('token',res.data.token);
+            sessionData.set('currentUser',res.data.currentUser);
+        });
+    }
+</script>
+</html>

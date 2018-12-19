@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VUE</title>
+    <link rel="stylesheet" href="../css/base.css">
+</head>
+<body>
+<div id="eg1">
+    <p>姓名：{{name}}</p>
+    <p>{{ name.split('').reverse().join('') }}</p>
+    <p>{{reversedMessage}}</p>
+</div>
+</body>
+<script type="text/javascript" src="../js/base.js"></script>
+<script>
+    importing('vue',function(){
+        new Vue({
+            el:'#eg1',
+            data:{
+                name:'test123'
+            },
+            computed: {
+                // 计算属性的 getter
+                reversedMessage: function () {
+                    // `this` 指向 vm 实例
+                    return this.name.split('').reverse().join('')
+                }
+            }
+        });
+    });
+</script>
+</html>

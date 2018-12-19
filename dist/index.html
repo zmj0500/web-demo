@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+<div class="main-box">
+    <div class="main-header">
+        <div class="main-logo">Demo</div>
+        <div class="main-line"></div>
+        <ul id="root-menu" class="main-menu clearfix">
+            <li class="first-menu">
+                <a href="javascript:;" direct="">样式</a>
+                <img src=""/>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="javascript:;" direct="view/demo/button.html">按钮</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="first-menu">
+                <a href="javascript:;" direct="view/form.html">表单</a>
+                <img src=""/>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="javascript:;" direct="view/demo/jquery-validate.html">jquery-validate</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <div class="main-info">
+            <div class="main-line"></div>
+            <span class="mr15">管理员</span>
+            <span title="退出">
+                <img src="img/icon/logout.png" class="pointer"/>
+            </span>
+        </div>
+    </div>
+    <div id="main-body" class="main-body">
+        <!--<iframe id="main-iframe" src="http://www.baidu.com" frameborder="no" border="0"></iframe>-->
+        <iframe id="main-iframe" src="view/demo/validate.html" frameborder="no" border="0"></iframe>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+
+    window.token = sessionData.get('token');
+    window.currentUser = sessionData.get('currentUser');
+
+    // if(!window.token){
+    //     //1.如果是按照/dist访问的
+    //     location.href.indexOf('/dist/')>-1 && (location.href = location.href.replace(/\/dist.*/,'/dist/_login.html'));
+    //
+    //     setTimeout(function(){
+    //         //2.如果是按/访问，web服务器默认给index.html
+    //         location.href = location.origin + '/_login.html';
+    //     },200);
+    // }
+
+    var mainIframe = $('#main-iframe');
+    $('#root-menu')
+        .on('click','a[direct]',function(){
+            var direct = $(this).attr('direct');
+            direct && mainIframe.prop('src',direct);
+        })
+        /*.on('mouseenter','li.first-menu',function(){
+            var the = $(this);
+            the.children('ul').slideToggle();
+        })
+        .on('mouseleave','li.first-menu',function(){
+            var the = $(this);
+            the.children('ul').slideToggle();
+        })*/;
+</script>
+</html>

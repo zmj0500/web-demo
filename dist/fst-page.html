@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <style>
+        div{
+            width: 150px;
+            height: 180px;
+            border: 1px solid;
+            position: relative;
+        }
+        span{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: inline-block;
+            height: 35px;
+            line-height: 35px;
+            font-size: 15px;
+            text-align: center;
+            background: #00000063;
+            color: #fff;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <span>上传照片</span>
+</div>
+</body>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+    $('div').mouseover(function(){
+        console.log(1)
+        $('span').slideToggle();
+    }).mouseout(function(){
+        console.log(2)
+        $('span').slideToggle();
+    });
+    $('span').mouseover(function(e){
+        e.stopPropagation()
+    }).mouseout(function(e){
+        e.stopPropagation()
+    });
+</script>
+</html>
